@@ -1,0 +1,24 @@
+name: 部署到 GitHub Pages
+
+# 觸發事件，當推送到 main 分支時執行
+on:
+  push:
+    branches:
+      - main  # 如果你的主分支是 `master`，可以將 `main` 改成 `master`
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 檢出代碼
+      - name: 檢出代碼
+        uses: actions/checkout@v2
+
+      # 部署到 GitHub Pages
+      - name: 部署到 GitHub Pages
+        uses: JamesIves/github-pages-deploy-action@v4.0.0
+        with:
+          branch: branch-pages      # 將文件部署到 branch-pages 分支
+          folder: .              # 部署根目錄的所有文件（假設 `index.html` 在根目錄）
+          token: ${{ secrets.GITHUB_TOKEN }}  # 使用 GitHub 自動生成的 GITHUB_TOKEN
