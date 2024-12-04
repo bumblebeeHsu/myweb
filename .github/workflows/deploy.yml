@@ -17,7 +17,7 @@ jobs:
 
       # 部署到 GitHub Pages
       - name: 部署到 GitHub Pages
-        uses: JamesIves/github-pages-deploy-action@v4.0.0
+        uses: JamesIves/github-pages-deploy-action@v4
         with:
           branch: branch-pages      # 將文件部署到 branch-pages 分支
           folder: .              # 部署根目錄的所有文件（假設 `index.html` 在根目錄）
